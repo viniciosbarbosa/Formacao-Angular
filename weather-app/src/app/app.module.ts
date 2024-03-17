@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { WeatherHomeComponent } from './modules/wheater/pages/weather-home/weather-home.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherHomeComponent
   ],
   imports: [
     BrowserModule,
