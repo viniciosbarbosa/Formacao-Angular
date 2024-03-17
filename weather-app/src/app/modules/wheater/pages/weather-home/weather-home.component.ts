@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
-import { WeatherData } from 'src/app/models/Interfaces/WeatherDatas';
+import { WeatherDatas } from 'src/app/models/Interfaces/WeatherDatas';
 import { Subject, takeUntil } from 'rxjs';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,7 +12,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 export class WeatherHomeComponent implements OnInit , OnDestroy{
   private readonly destroy$:Subject<void> = new Subject()
   initialCityName = "São Paulo"
-  weatherDatas!:WeatherData
+  weatherDatas!:WeatherDatas
   searchIcon = faMagnifyingGlass
 
   constructor(private weatherService:WeatherService){
