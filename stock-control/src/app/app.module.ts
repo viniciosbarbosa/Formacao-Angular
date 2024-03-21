@@ -13,6 +13,7 @@ import { ToastModule } from 'primeng/toast';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/home.component';
+import { SsrCookieService } from 'ngx-cookie-service-ssr';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -28,7 +29,7 @@ import { HomeComponent } from './modules/home/home.component';
     ButtonModule,
     ToastModule,
   ],
-  providers: [],
+  providers: [SsrCookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
