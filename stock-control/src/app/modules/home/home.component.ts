@@ -6,6 +6,7 @@ import { SignupUserResponse } from 'src/app/models/interfaces/user/SignupUserRes
 import { AuthRequest } from 'src/app/models/interfaces/user/auth/AuthRequest';
 import { UserService } from 'src/app/services/user/user.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +30,8 @@ export class HomeComponent implements OnInit{
     private formBuilder: FormBuilder,
     private userService : UserService,
     private cookieService : SsrCookieService,
-    private messageService : MessageService
+    private messageService : MessageService,
+    private router:Router
     ){}
 
   ngOnInit(): void {
@@ -45,6 +47,7 @@ export class HomeComponent implements OnInit{
           if(response){
             this.cookieService.set('USER_INFO' , response?.token);
             this.loginForm.reset()
+            this.router.navigate(['/dashboard'])
 
             this.messageService.add({
               severity:'success',
