@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
+
+import { CookieService } from 'ngx-cookie-service';
+
 import { Observable } from 'rxjs';
 import { SignupUserRequest } from 'src/app/models/interfaces/user/SignupUserRequest';
 import { SignupUserResponse } from 'src/app/models/interfaces/user/SignupUserResponse';
@@ -14,7 +16,7 @@ import { enviroments } from 'src/environments/environments';
 export class UserService {
 private API_URL = enviroments.API_URL
 
-constructor(private http: HttpClient , private cookie: SsrCookieService) { }
+constructor(private http: HttpClient , private cookie: CookieService) { }
 
   signUpUser(requestDatas:SignupUserRequest):Observable<SignupUserResponse>{
     return this.http.post<SignupUserResponse>(

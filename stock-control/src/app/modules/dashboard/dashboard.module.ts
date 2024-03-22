@@ -11,7 +11,8 @@ import { ToolbarModule } from 'primeng/toolbar'
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
+
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,6 @@ import { SsrCookieService } from 'ngx-cookie-service-ssr';
     ToastModule
   ],
 
-  providers:[MessageService , SsrCookieService]
+  providers:[MessageService , CookieService]
 })
 export class DashboardModule { }

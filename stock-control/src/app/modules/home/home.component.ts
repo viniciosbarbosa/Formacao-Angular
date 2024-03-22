@@ -1,4 +1,4 @@
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
+import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SignupUserRequest } from 'src/app/models/interfaces/user/SignupUserRequest';
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit{
   constructor(
     private formBuilder: FormBuilder,
     private userService : UserService,
-    private cookieService : SsrCookieService,
+    private cookieService : CookieService,
     private messageService : MessageService,
     private router:Router
     ){}
