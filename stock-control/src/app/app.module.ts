@@ -16,6 +16,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { MessageService } from 'primeng/api';
 
 import { CookieService } from 'ngx-cookie-service';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -30,6 +31,7 @@ import { CookieService } from 'ngx-cookie-service';
     InputTextModule,
     ButtonModule,
     ToastModule,
+    ChartModule
   ],
   providers: [CookieService , MessageService],
   bootstrap: [AppComponent],
