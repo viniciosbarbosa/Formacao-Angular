@@ -134,6 +134,7 @@
               icon="pi pi-plus"
               label="Adicionar"
               pTooltip="Adicionar produto"
+              (onClick)="handleProductEvent(addProductEvent)"
               tooltipPosition="top"
               >
               </p-button>
@@ -158,6 +159,7 @@
             icon="pi pi-pencil"
             class="p-button-rounded p-button-warning"
             pTooltip="Editar Produtos"
+            (click)="handleProductEvent(editProductEvent ,product?.id)"
             tooltipPosition="top"></button>
 
             <button
