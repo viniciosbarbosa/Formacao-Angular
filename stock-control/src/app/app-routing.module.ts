@@ -6,20 +6,27 @@ import { AuthGuard } from './guards/auth-guard.service';
 
 
 const routes: Routes = [
-  {path: "",
+  { path: "",
   redirectTo:"dashboard" ,
   pathMatch:'full'},
 
 
-  {path: "home" ,
+  { path: "home" ,
   component:HomeComponent},
 
-  {path: "dashboard" ,
+  { path: "dashboard" ,
   loadChildren:() =>
   import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule ),
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard],
+  },
 
-}
+  {
+    path: 'products',
+    loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule),
+    canActivate: [AuthGuard]
+  }
+
+
 ];
 
 @NgModule({
