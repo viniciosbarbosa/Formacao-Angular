@@ -1,31 +1,26 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { CommonModule , CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { DialogService } from 'primeng/dynamicdialog';
-import { ToolbarNavigationComponent } from './components/toolbar-navigation/toolbar-navigation.component'
-import { RouterModule } from '@angular/router';
-
+import { ToolbarNavigationComponent } from './components/toolbar-navigation/toolbar-navigation.component';
 
 @NgModule({
-  declarations: [
-    ToolbarNavigationComponent
-  ],
+  declarations: [ToolbarNavigationComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    //prime ng
+    //PrimeNg
     ToolbarModule,
     CardModule,
     ButtonModule,
-
   ],
-
-  exports:[ToolbarNavigationComponent],
-  providers:[DialogService , CurrencyPipe]
+  exports: [ToolbarNavigationComponent],
+  providers: [DialogService, CurrencyPipe],
 })
-export class SharedModule { }
+export class SharedModule {}

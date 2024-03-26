@@ -1,11 +1,11 @@
-import { ProductsDataTransferService } from './../../../../shared/service/products/products-data-transfer.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Subject, take, takeUntil } from 'rxjs';
-import { EventAction } from 'src/app/models/interfaces/products/event/EventAction';
+import { ProductsService } from '../../../../services/products/products.service';
+import { ProductsDataTransferService } from 'src/app/shared/services/products/products-data-transfer.service';
 import { GetAllProductsResponse } from 'src/app/models/interfaces/products/response/GetAllProductsResponse';
-import { ProductsService } from 'src/app/services/products/products.service';
+import { EventAction } from 'src/app/models/interfaces/products/event/EventAction';
 
 @Component({
   selector: 'app-products-home',
@@ -14,12 +14,11 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class ProductsHomeComponent implements OnInit, OnDestroy {
   private readonly destroy$: Subject<void> = new Subject();
-
   public productsDatas: Array<GetAllProductsResponse> = [];
 
   constructor(
     private productsService: ProductsService,
-    private producsDtService: ProductsDataTransferService,
+    private productsDtService: ProductsDataTransferService,
     private router: Router,
     private messageService: MessageService,
     private confirmationService: ConfirmationService
@@ -30,17 +29,14 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
   }
 
   getServiceProductsDatas() {
-    const productsLoaded = this.producsDtService.getProductsDatas();
+    const productsLoaded = this.productsDtService.getProductsDatas();
+
     if (productsLoaded.length > 0) {
       this.productsDatas = productsLoaded;
-    } else {
-      this.getApiProductsDatas();
-    }
-
-    console.log('Dados de produtos hot observable', this.productsDatas);
+    } else this.getAPIProductsDatas();
   }
 
-  getApiProductsDatas() {
+  getAPIProductsDatas() {
     this.productsService
       .getAllProducts()
       .pipe(takeUntil(this.destroy$))
@@ -48,7 +44,6 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
         next: (response) => {
           if (response.length > 0) {
             this.productsDatas = response;
-            console.log('Dados de produtos por service', this.productsDatas);
           }
         },
         error: (err) => {
@@ -66,7 +61,7 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
 
   handleProductAction(event: EventAction): void {
     if (event) {
-      console.log('evento recebido', event);
+      console.log('DADOS DO EVENTO RECEBIDO', event);
     }
   }
 
@@ -76,8 +71,8 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
   }): void {
     if (event) {
       this.confirmationService.confirm({
-        message: `Confimar a exclusao do produto ${event?.productName}`,
-        header: 'Confirmação de exclusão ?',
+        message: `Confirma a exclusão do produto: ${event?.productName}?`,
+        header: 'Confirmação de exclusão',
         icon: 'pi pi-exclamation-triangle',
         acceptLabel: 'Sim',
         rejectLabel: 'Não',
@@ -86,7 +81,7 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  deleteProduct(product_id: string): void {
+  deleteProduct(product_id: string) {
     if (product_id) {
       this.productsService
         .deleteProduct(product_id)
@@ -97,18 +92,19 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
               this.messageService.add({
                 severity: 'success',
                 summary: 'Sucesso',
-                detail: 'Produto removido com sucesso',
+                detail: 'Produto removido com sucesso!',
                 life: 2500,
               });
-              this.getApiProductsDatas();
+
+              this.getAPIProductsDatas();
             }
           },
           error: (err) => {
             console.log(err);
             this.messageService.add({
               severity: 'error',
-              summary: 'Error',
-              detail: 'Erro ao remover produto',
+              summary: 'Erro',
+              detail: 'Erro ao remover produto!',
               life: 2500,
             });
           },

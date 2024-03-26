@@ -12,7 +12,7 @@
         [responsive]="true"
         [globalFilterFields]="['name', 'amount']"
         [tableStyle]="{ 'min-width': '75rem' }"
-        [(selection)]="productSelect"
+        [(selection)]="productSelected"
         [rowHover]="true"
         [showCurrentPageReport]="true"
         dataKey="id"
@@ -35,8 +35,7 @@
                     [showMatchModes]="false"
                     [showOperator]="false"
                     [showAddButton]="false"
-                  >
-                  </p-columnFilter>
+                  ></p-columnFilter>
                 </div>
               </div>
             </th>
@@ -56,8 +55,7 @@
                     [showMatchModes]="false"
                     [showOperator]="false"
                     [showAddButton]="false"
-                  >
-                  </p-columnFilter>
+                  ></p-columnFilter>
                 </div>
               </div>
             </th>
@@ -77,8 +75,7 @@
                     [showMatchModes]="false"
                     [showOperator]="false"
                     [showAddButton]="false"
-                  >
-                  </p-columnFilter>
+                  ></p-columnFilter>
                 </div>
               </div>
             </th>
@@ -98,8 +95,7 @@
                     [showMatchModes]="false"
                     [showOperator]="false"
                     [showAddButton]="false"
-                  >
-                  </p-columnFilter>
+                  ></p-columnFilter>
                 </div>
               </div>
             </th>
@@ -119,23 +115,21 @@
                     [showMatchModes]="false"
                     [showOperator]="false"
                     [showAddButton]="false"
-                  >
-                  </p-columnFilter>
+                  ></p-columnFilter>
                 </div>
               </div>
             </th>
 
             <th>
-              <div class="flex justify-content-between align-items-center">
+              <div class="flex justify-content-center">
                 <p-button
                   styleClass="p-button-info"
                   icon="pi pi-plus"
                   label="Adicionar"
                   pTooltip="Adicionar produto"
-                  (onClick)="handleProductEvent(addProductEvent)"
                   tooltipPosition="top"
-                >
-                </p-button>
+                  (onClick)="handleProductEvent(addProductEvent)"
+                ></p-button>
               </div>
             </th>
           </tr>
@@ -152,26 +146,25 @@
             <td>{{ product?.category?.name }}</td>
             <td>
               <div
-                class="flex justify-content-center gap-3 align-items-center align-content-center"
+                class="flex justify-content-center gap-3 align-content-center align-items-center"
               >
                 <button
                   pButton
                   pRipple
                   icon="pi pi-pencil"
                   class="p-button-rounded p-button-warning"
-                  pTooltip="Editar Produtos"
-                  (click)="handleProductEvent(editProductEvent, product?.id)"
+                  pTooltip="Editar produto"
                   tooltipPosition="top"
+                  (click)="handleProductEvent(editProductEvent, product?.id)"
                 ></button>
-
                 <button
                   pButton
                   pRipple
                   icon="pi pi-trash"
                   class="p-button-rounded p-button-danger"
-                  pTooltip="Remover Produtos"
-                  (click)="handleDeleteProduct(product?.id, product?.name)"
+                  pTooltip="Remover Produto"
                   tooltipPosition="top"
+                  (click)="handleDeleteProduct(product?.id, product?.name)"
                 ></button>
               </div>
             </td>
