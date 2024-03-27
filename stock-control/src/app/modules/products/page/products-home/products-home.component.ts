@@ -73,7 +73,7 @@ export class ProductsHomeComponent implements OnInit, OnDestroy {
         maximizable: true,
         data: {
           event: event,
-          productData: this.productsDatas,
+          productDatas: this.productsDatas,
         },
       });
       this.ref.onClose.pipe(takeUntil(this.destroy$)).subscribe({
