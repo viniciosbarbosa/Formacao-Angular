@@ -46,6 +46,9 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     amount: [0, Validators.required],
   });
 
+  public saleProductSeleted!: GetAllProductsResponse;
+  public renderDropDown = false;
+
   public addProductAction = ProductEvent.ADD_PRODUCT_EVENT;
   public editProductAction = ProductEvent.EDIT_PRODUCT_EVENT;
   public saleProductAction = ProductEvent.SALE_PRODUCT_EVENT;
@@ -62,18 +65,13 @@ export class ProductFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.productAction = this.ref.data;
-    if (
-      this.productAction?.event?.action === this.editProductAction &&
-      this.productAction?.productDatas
-    ) {
-      this.getProductSelectedDatas(this.productAction?.event?.id as string);
-    }
 
     if (this.productAction?.event?.action === this.saleProductAction) {
       this.getProductDatas();
     }
 
     this.getAllCategories();
+    this.renderDropDown = true;
   }
 
   getAllCategories(): void {
@@ -84,6 +82,15 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         next: (response) => {
           if (response.length > 0) {
             this.categoriesDatas = response;
+
+            if (
+              this.productAction?.event?.action === this.editProductAction &&
+              this.productAction?.productDatas
+            ) {
+              this.getProductSelectedDatas(
+                this.productAction?.event?.id as string
+              );
+            }
           }
         },
       });
@@ -138,6 +145,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         description: this.editProductForm.value.description as string,
         product_id: this.productAction.event.id,
         amount: this.editProductForm.value.amount as number,
+        category_id: this.editProductForm.value.category_id as string,
       };
 
       this.productService
@@ -184,7 +192,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
           price: this.productSelectedDatas?.price,
           description: this.productSelectedDatas?.description,
           amount: this.productSelectedDatas?.amount,
-          category_id: this.productSelectedDatas?.id,
+          category_id: this.productSelectedDatas?.category.id,
         });
       }
     }
