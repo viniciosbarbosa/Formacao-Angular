@@ -1,3 +1,5 @@
+import { SaleProductResponse } from './../../models/interfaces/products/response/SaleProductResponse';
+import { SaleProductRequest } from './../../../../../api/stock-api/src/models/interfaces/product/SaleProductRequest';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
@@ -60,6 +62,16 @@ export class ProductsService {
       `${this.API_URL}/product/edit`,
       requestDatas,
       this.httpOptions
+    );
+  }
+
+  saleProduct(
+    requestDatas: SaleProductRequest
+  ): Observable<SaleProductResponse> {
+    return this.http.put<SaleProductResponse>(
+      `${this.API_URL}/product/sale`,
+      { amount: requestDatas?.amount },
+      { ...this.httpOptions, params: { product_id: requestDatas.product_id } }
     );
   }
 }

@@ -5,7 +5,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { DynamicDialogConfig } from 'primeng/dynamicdialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Subject, takeUntil } from 'rxjs';
 import { GetCategoriesResponse } from 'src/app/models/interfaces/categories/responses/GetCategoriesResponse';
 import { EventAction } from 'src/app/models/interfaces/products/event/EventAction';
@@ -30,6 +30,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
   };
   public productSelectedDatas!: GetAllProductsResponse;
   public productDatas: Array<GetAllProductsResponse> = [];
+
   public addProductForm = this.formBuilder.group({
     name: ['', Validators.required],
     price: ['', Validators.required],
@@ -46,12 +47,18 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     amount: [0, Validators.required],
   });
 
+  public saleProductForm = this.formBuilder.group({
+    amount: [0, Validators.required],
+    product_id: ['', Validators.required],
+  });
+
   public saleProductSeleted!: GetAllProductsResponse;
   public renderDropDown = false;
 
   public addProductAction = ProductEvent.ADD_PRODUCT_EVENT;
   public editProductAction = ProductEvent.EDIT_PRODUCT_EVENT;
   public saleProductAction = ProductEvent.SALE_PRODUCT_EVENT;
+  public dialogRef!: DynamicDialogRef;
 
   constructor(
     private categoriesService: CategoriesService,
@@ -175,6 +182,47 @@ export class ProductFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
+
+  handleSubmitSaleProduct(): void {
+    if (this.saleProductForm?.value && this.saleProductForm.valid) {
+      const requestDatas: SaleProductRequest = {
+        amount: this.saleProductForm.value.amount as number,
+        product_id: this.saleProductForm.value.product_id as string,
+      };
+
+      this.productService
+        .saleProduct(requestDatas)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (response) => {
+            this.saleProductForm.reset();
+            this.getProductDatas();
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Sucesso',
+              detail: 'Venda efetuada com sucesso!',
+              life: 2500,
+            });
+            this.closeDialog();
+            this.router.navigate(['/dashboard']);
+          },
+          error: (err) => {
+            this.saleProductForm.reset();
+            console.log(err);
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Erro',
+              detail: 'Error ao vender o produto!',
+              life: 2500,
+            });
+          },
+        });
+    }
+  }
+
   getProductSelectedDatas(product_id: string): void {
     const allProducts = this.productAction?.productDatas;
 
@@ -205,10 +253,7 @@ export class ProductFormComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           if (response.length > 0) {
-            // this.productDatas = response;
-            // this.productDatas &&
-            //   this.productDtService.setProductsDatas(this.productDatas);
-
+            this.productDatas = response;
             response && this.productDtService.setProductsDatas(response);
           }
         },
