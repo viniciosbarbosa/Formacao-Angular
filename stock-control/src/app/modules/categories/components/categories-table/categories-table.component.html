@@ -6,7 +6,7 @@
     >
       <p-table
         [value]="categories"
-        [rows]="10"
+        [rows]="5"
         [(selection)]="categorySelected"
         [paginator]="true"
         [responsive]="true"
@@ -65,15 +65,22 @@
                   pRipple
                   icon="pi pi-pencil"
                   class="p-button-rounded p-button-warning"
-                  pTooltip="Editar produto"
+                  pTooltip="Editar Categoria"
                   tooltipPosition="top"
+                  (click)="
+                    handleCategoryEvent(
+                      editCategoryAction,
+                      category.id,
+                      category.name
+                    )
+                  "
                 ></button>
                 <button
                   pButton
                   pRipple
                   icon="pi pi-trash"
                   class="p-button-rounded p-button-danger"
-                  pTooltip="Remover Produto"
+                  pTooltip="Remover Categoria"
                   tooltipPosition="top"
                 ></button>
               </div>
