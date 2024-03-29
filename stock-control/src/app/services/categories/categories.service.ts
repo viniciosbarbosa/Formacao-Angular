@@ -52,4 +52,13 @@ export class CategoriesService {
       }
     );
   }
+
+  deleteCategory(requestDatas: { category_id: string }): Observable<void> {
+    return this.http.delete<void>(`${this.API_URL}/category/delete`, {
+      ...this.httpOptions,
+      params: {
+        category_id: requestDatas.category_id,
+      },
+    });
+  }
 }

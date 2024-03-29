@@ -7,6 +7,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { GetCategoriesResponse } from 'src/app/models/interfaces/categories/responses/GetCategoriesResponse';
 import { EventAction } from 'src/app/models/interfaces/products/event/EventAction';
 import { CategoryFormComponent } from '../../components/category-form/category-form/category-form.component';
+import { DeleteCategoryAction } from 'src/app/models/interfaces/categories/event/DeleteCategoryAction';
 
 @Component({
   selector: 'app-categories-home',
@@ -69,6 +70,47 @@ export class CategoriesHomeComponent implements OnInit, OnDestroy {
       this.ref.onClose.pipe(takeUntil(this.destroy$)).subscribe({
         next: () => this.getAllCategories(),
       });
+    }
+  }
+
+  handleDeleteCategoryAction(event: DeleteCategoryAction): void {
+    if (event) {
+      this.confirmationService.confirm({
+        message: `Confirma a exclusao da categoria ${event.categoryName} ?`,
+        header: 'Confirmação de exclusão ?',
+        icon: 'pi pi-exclamation-triangle',
+        acceptLabel: 'Sim',
+        rejectLabel: 'Não',
+        accept: () => this.deleteCategory(event.category_id),
+      });
+    }
+  }
+
+  deleteCategory(category_id: string): void {
+    if (category_id) {
+      this.categoriesService
+        .deleteCategory({ category_id })
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (response) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Sucesso',
+              detail: 'Categoria removida com sucesso!',
+              life: 2500,
+            });
+            this.getAllCategories();
+          },
+          error: (err) => {
+            this.messageService.add({
+              severity: 'erro',
+              summary: 'Erro',
+              detail: 'Error ao remover categoria!',
+              life: 2500,
+            });
+            this.getAllCategories();
+          },
+        });
     }
   }
 
