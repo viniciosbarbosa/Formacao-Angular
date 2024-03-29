@@ -31,7 +31,7 @@ export class CategoriesService {
     name: string;
   }): Observable<Array<GetCategoriesResponse>> {
     return this.http.post<Array<GetCategoriesResponse>>(
-      `${this.API_URL}/categories`,
+      `${this.API_URL}/category`,
       requestDatas,
       this.httpOptions
     );
