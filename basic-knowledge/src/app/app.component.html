@@ -1,3 +1,9 @@
 <h1>Bem Vindo ao {{ title }} !!!</h1>
+
+<img [src]="imgUrl" style="display: block" />
+
+<input [(ngModel)]="title" />
+
 <button (click)="mudarTexto()">Mudar texto</button>
+<button (click)="chamarFuncao()">Chamar</button>
 <router-outlet></router-outlet>
