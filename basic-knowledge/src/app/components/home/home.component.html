@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <th>nome</th>
+    <th>sexo</th>
+    <th>idade</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>{{ person.name | uppercase }}</td>
+      <td>{{ person.gender | genderPipe }}</td>
+      <td>{{ person.age }}</td>
+      <td>{{ person.salary | currency : "BRL" : "symbol" }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>teste</p>

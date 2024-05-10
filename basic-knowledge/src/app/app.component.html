@@ -1,18 +1,4 @@
 <!-- <h1>Bem Vindo ao {{ title }} !!!</h1> -->
-<table>
-  <thead>
-    <th>nome</th>
-    <th>sexo</th>
-    <th>idade</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let person of people">
-      <td>{{ person.name | uppercase }}</td>
-      <td>{{ person.gender | genderPipe }}</td>
-      <td>{{ person.age }}</td>
-      <td>{{ person.salary | currency : "BRL" : "symbol" }}</td>
-    </tr>
-  </tbody>
-</table>
 
-<span>{{ people | json }}</span>
+<app-toolbar></app-toolbar>
+<router-outlet></router-outlet>

@@ -31,27 +31,6 @@ export class AppComponent
   imgUrl: string =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7y20iKGs05xJJZhBzLGvH3q3YDP58_0Fk0-aGaHgvCg&s";
 
-  people: Array<any> = [
-    {
-      name: "vinicius",
-      gender: "M",
-      age: "23",
-      salary: "15000",
-    },
-    {
-      name: "luana",
-      gender: "F",
-      age: "24",
-      salary: "2300",
-    },
-    {
-      name: "youko",
-      gender: "F",
-      age: "25",
-      salary: "5000",
-    },
-  ];
-
   constructor() {
     console.log("Componente Construtor");
   }
