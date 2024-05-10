@@ -26,21 +26,43 @@ export class AppComponent
     AfterViewChecked,
     OnDestroy
 {
-  title = "basic-knowledge";
+  nota: number = 5;
+  title: string = "4";
   imgUrl: string =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7y20iKGs05xJJZhBzLGvH3q3YDP58_0Fk0-aGaHgvCg&s";
+
+  people: Array<any> = [
+    {
+      name: "vinicius",
+      gender: "M",
+      age: "23",
+      salary: "15000",
+    },
+    {
+      name: "luana",
+      gender: "F",
+      age: "24",
+      salary: "2300",
+    },
+    {
+      name: "youko",
+      gender: "F",
+      age: "25",
+      salary: "5000",
+    },
+  ];
 
   constructor() {
     console.log("Componente Construtor");
   }
 
   mudarTexto() {
-    this.title += "a";
+    this.title += "Ola";
   }
 
   ngOnInit(): void {
     console.log("Componente OnInit");
-    this.title = "Novo titulo";
+    // this.title = "Novo titulo";
   }
   ngOnChanges(): void {
     console.log("Componente OnChanges");
@@ -86,4 +108,10 @@ export class AppComponent
   * Two way Data Binding <input [(ngModel)]='title' />
 
   */
+
+  /**
+   * Diretivas de Decisoes
+   *
+   * Ngif
+   */
 }
