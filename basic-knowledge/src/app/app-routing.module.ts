@@ -7,6 +7,11 @@ const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "new", component: NewComponent },
+  {
+    path: "produto",
+    loadChildren: () =>
+      import("./features/produto/produto.module").then((m) => m.ProdutoModule),
+  },
 ];
 
 @NgModule({
