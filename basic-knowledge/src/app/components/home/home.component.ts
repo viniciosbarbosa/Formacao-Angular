@@ -1,12 +1,20 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { MatTableDataSource } from "@angular/material/table";
+
+export interface Pessoa {
+  name: string;
+  gender: string;
+  age: string;
+  salary: string;
+}
 
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent {
-  people: Array<any> = [
+export class HomeComponent implements OnInit {
+  people: Array<Pessoa> = [
     {
       name: "vinicius",
       gender: "M",
@@ -21,9 +29,15 @@ export class HomeComponent {
     },
     {
       name: "youko",
-      gender: "",
+      gender: "F",
       age: "25",
       salary: "5000",
     },
   ];
+
+  displayedColumns: string[] = ["name", "gender", "age", "salary"];
+  dataSource!: MatTableDataSource<Pessoa>;
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource(this.people);
+  }
 }
