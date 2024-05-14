@@ -14,26 +14,7 @@ export interface Pessoa {
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  people: Array<Pessoa> = [
-    {
-      name: "vinicius",
-      gender: "M",
-      age: "23",
-      salary: "15000",
-    },
-    {
-      name: "luana",
-      gender: "F",
-      age: "24",
-      salary: "2300",
-    },
-    {
-      name: "youko",
-      gender: "F",
-      age: "25",
-      salary: "5000",
-    },
-  ];
+  people!: Pessoa[];
 
   displayedColumns: string[] = ["name", "gender", "age", "salary"];
   dataSource!: MatTableDataSource<Pessoa>;
