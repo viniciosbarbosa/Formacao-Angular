@@ -13,6 +13,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { MatTableModule } from "@angular/material/table";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatTableModule } from "@angular/material/table";
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
