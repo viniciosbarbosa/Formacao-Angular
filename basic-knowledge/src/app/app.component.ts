@@ -15,17 +15,7 @@ import {
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
-export class AppComponent
-  implements
-    OnInit,
-    OnChanges,
-    DoCheck,
-    AfterContentInit,
-    AfterViewInit,
-    AfterContentChecked,
-    AfterViewChecked,
-    OnDestroy
-{
+export class AppComponent {
   nota: number = 5;
   title: string = "4";
   imgUrl: string =
@@ -35,45 +25,45 @@ export class AppComponent
     console.log("Componente Construtor");
   }
 
-  mudarTexto() {
-    this.title += "Ola";
-  }
+  // mudarTexto() {
+  //   this.title += "Ola";
+  // }
 
-  ngOnInit(): void {
-    console.log("Componente OnInit");
-    // this.title = "Novo titulo";
-  }
-  ngOnChanges(): void {
-    console.log("Componente OnChanges");
-  }
+  // ngOnInit(): void {
+  //   console.log("Componente OnInit");
+  //   // this.title = "Novo titulo";
+  // }
+  // ngOnChanges(): void {
+  //   console.log("Componente OnChanges");
+  // }
 
-  ngDoCheck(): void {
-    console.log("Componente DoCheck");
-  }
+  // ngDoCheck(): void {
+  //   console.log("Componente DoCheck");
+  // }
 
-  ngAfterContentInit(): void {
-    console.log("Componente AfterContentInit");
-  }
+  // ngAfterContentInit(): void {
+  //   console.log("Componente AfterContentInit");
+  // }
 
-  ngAfterViewInit(): void {
-    console.log("Componente AfterViewInit");
-  }
+  // ngAfterViewInit(): void {
+  //   console.log("Componente AfterViewInit");
+  // }
 
-  ngAfterContentChecked(): void {
-    console.log("Componente AfterContentChecked");
-  }
+  // ngAfterContentChecked(): void {
+  //   console.log("Componente AfterContentChecked");
+  // }
 
-  ngAfterViewChecked(): void {
-    console.log("Componente AfterViewChecked");
-  }
+  // ngAfterViewChecked(): void {
+  //   console.log("Componente AfterViewChecked");
+  // }
 
-  ngOnDestroy(): void {
-    console.log("Componente OnDestroy");
-  }
+  // ngOnDestroy(): void {
+  //   console.log("Componente OnDestroy");
+  // }
 
-  chamarFuncao() {
-    console.log("Este e um click");
-  }
+  // chamarFuncao() {
+  //   console.log("Este e um click");
+  // }
 
   /**
   * Data Binding

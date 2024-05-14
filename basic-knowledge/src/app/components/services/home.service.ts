@@ -1,19 +1,18 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Produtos } from "../models/produto.model";
 
 @Injectable({
   providedIn: "root",
 })
-export class ProdutoService {
-  //Injecao de dependencias
-
+export class HomeService {
   private appUrl = "http://localhost:3000";
 
   constructor(private http: HttpClient) {}
 
-  getProdutos(): Observable<Produtos> {
-    return this.http.get<Produtos>(`${this.appUrl}/produtos`);
+  //recuperar clientes
+
+  getClients(): Observable<any> {
+    return this.http.get<any>(`${this.appUrl}/clientes`);
   }
 }

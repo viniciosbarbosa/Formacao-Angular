@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProdutoService } from "../services/produto.service";
+import { Produtos } from "../models/produto.model";
 
 @Component({
   selector: "app-listagem",
@@ -9,10 +10,12 @@ import { ProdutoService } from "../services/produto.service";
 export class ListagemComponent implements OnInit {
   constructor(private produtoService: ProdutoService) {}
 
-  //RX JS
+  produtos!: Produtos;
+
   ngOnInit(): void {
-    this.produtoService.getCidadePelo().subscribe((data) => {
-      console.log(data);
+    this.produtoService.getProdutos().subscribe((produtos) => {
+      this.produtos = produtos;
+      console.log(this.produtos);
     });
   }
 }
