@@ -1,6 +1,7 @@
 {
   "produtos": [
     {
+      "id": 1,
       "nome": "Teclado Gamer",
       "descricao": "Teclado gamer RGB multi-devices",
       "imagemUrl": "https://m.media-amazon.com/images/I/61nvk16RZrL._AC_SX679_.jpg",
@@ -8,6 +9,7 @@
       "estoque": 12
     },
     {
+      "id": 2,
       "nome": "Mouse Gamer",
       "descricao": "Mouse gamer RGB 1200dpi",
       "imagemUrl": "https://images.kabum.com.br/produtos/fotos/94555/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_1656018617_gg.jpg",
@@ -15,6 +17,7 @@
       "estoque": 56
     },
     {
+      "id": 3,
       "nome": "Monitor Ultra Wide",
       "descricao": "Monitor Ultra Wide 29 polegadas IPS 144ms",
       "imagemUrl": "https://m.media-amazon.com/images/I/51Ufkd4a13L._AC_SX679_.jpg",
@@ -22,6 +25,7 @@
       "estoque": 5
     },
     {
+      "id": 4,
       "nome": "Notebook Gamer",
       "descricao": "Notebook Gamer com placa dedicada",
       "imagemUrl": "https://m.media-amazon.com/images/I/61tegGxILZL._AC_SX679_.jpg",
