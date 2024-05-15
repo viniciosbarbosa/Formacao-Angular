@@ -20,4 +20,16 @@ export class ProdutoService {
   getProdutoPeloId(id: string): Observable<Produto> {
     return this.http.get<Produto>(`${this.appUrl}/produtos/${id}`);
   }
+
+  atualizarProduto(produto: Produto): Observable<any> {
+    return this.http.put<any>(`${this.appUrl}/produtos/${produto.id}`, produto);
+  }
+
+  criarNovoProduto(produto: Produto): Observable<any> {
+    return this.http.post<any>(`${this.appUrl}/produtos`, produto);
+  }
+
+  excluirProduto(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.appUrl}/produtos/${id}`);
+  }
 }

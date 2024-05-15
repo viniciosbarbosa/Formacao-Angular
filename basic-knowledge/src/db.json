@@ -1,99 +1,108 @@
 {
   "produtos": [
     {
-      "id": 1,
       "nome": "Teclado Gamer",
       "descricao": "Teclado gamer RGB multi-devices",
       "imagemUrl": "https://m.media-amazon.com/images/I/61nvk16RZrL._AC_SX679_.jpg",
       "preco": "150",
-      "estoque": 12
+      "estoque": 12,
+      "id": "fd2d"
     },
     {
-      "id": 2,
       "nome": "Mouse Gamer",
       "descricao": "Mouse gamer RGB 1200dpi",
-      "imagemUrl": "https://images.kabum.com.br/produtos/fotos/94555/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_1656018617_gg.jpg",
+      "imagemUrl": "https://m.media-amazon.com/images/I/51H+ecG+GgL._AC_SX679_.jpg",
       "preco": "59",
-      "estoque": 56
+      "estoque": 56,
+      "id": "6fbd"
     },
     {
-      "id": 3,
       "nome": "Monitor Ultra Wide",
       "descricao": "Monitor Ultra Wide 29 polegadas IPS 144ms",
       "imagemUrl": "https://m.media-amazon.com/images/I/51Ufkd4a13L._AC_SX679_.jpg",
       "preco": "1699",
-      "estoque": 5
+      "estoque": 5,
+      "id": "723b"
     },
     {
-      "id": 4,
       "nome": "Notebook Gamer",
       "descricao": "Notebook Gamer com placa dedicada",
       "imagemUrl": "https://m.media-amazon.com/images/I/61tegGxILZL._AC_SX679_.jpg",
       "preco": "5000",
-      "estoque": 2
+      "estoque": 2,
+      "id": "0669"
     }
   ],
-
   "clientes": [
     {
       "nome": "Maria Santos",
       "sexo": "f",
       "idade": 29,
-      "salario": 4000
+      "salario": 4000,
+      "id": "530b"
     },
     {
       "nome": "João Silva",
       "sexo": "m",
       "idade": 42,
-      "salario": 7000
+      "salario": 7000,
+      "id": "5fe8"
     },
     {
       "nome": "Ana Costa",
       "sexo": "f",
       "idade": 31,
-      "salario": 5500
+      "salario": 5500,
+      "id": "ebee"
     },
     {
       "nome": "José Oliveira",
       "sexo": "m",
       "idade": 26,
-      "salario": 3500
+      "salario": 3500,
+      "id": "2855"
     },
     {
       "nome": "Paula Alves",
       "sexo": "f",
       "idade": 35,
-      "salario": 6000
+      "salario": 6000,
+      "id": "838f"
     },
     {
       "nome": "Carlos Rodrigues",
       "sexo": "m",
       "idade": 38,
-      "salario": 8000
+      "salario": 8000,
+      "id": "ee34"
     },
     {
       "nome": "Beatriz Santos",
       "sexo": "f",
       "idade": 27,
-      "salario": 4500
+      "salario": 4500,
+      "id": "c7f8"
     },
     {
       "nome": "Rafaela Souza",
       "sexo": "f",
       "idade": 33,
-      "salario": 7000
+      "salario": 7000,
+      "id": "6baf"
     },
     {
       "nome": "Lucas Almeida",
       "sexo": "m",
       "idade": 29,
-      "salario": 4200
+      "salario": 4200,
+      "id": "aa66"
     },
     {
       "nome": "André Costa",
       "sexo": "m",
       "idade": 41,
-      "salario": 9000
+      "salario": 9000,
+      "id": "d5bb"
     }
   ]
 }

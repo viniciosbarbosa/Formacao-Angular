@@ -1,13 +1,35 @@
+<div class="example-button-container">
+  <button
+    (click)="criarNovoProduto()"
+    mat-fab
+    color="accent"
+    matTooltip="Criar novo produto"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
 <div class="flex">
   <mat-card
     class="example-card"
     (click)="selecionarProduto(produto)"
     *ngFor="let produto of produtos"
   >
-    <mat-card-header>
+    <mat-card-header class="flex">
       <mat-card-title class="title">{{ produto.nome }}</mat-card-title>
+
+      <div>
+        <button
+          (click)="deleteProduto(produto)"
+          mat-mini-fab
+          color="accent"
+          matTooltip="Deletar Produto"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-card-header>
-    <img mat-card-image [src]="produto.imagemUrl" alt="foto do produto" />
+    <img mat-card-image [src]="produto.imagemUrl" alt="Foto do produto" />
     <mat-card-content>
       <p class="descricao">
         {{ produto.descricao }}

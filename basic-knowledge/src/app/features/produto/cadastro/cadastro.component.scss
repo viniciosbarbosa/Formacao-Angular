@@ -1,0 +1,21 @@
+.example-form {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.tituloPagina {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}

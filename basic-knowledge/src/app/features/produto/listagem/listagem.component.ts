@@ -14,6 +14,10 @@ export class ListagemComponent implements OnInit {
   produtos!: Produtos;
 
   ngOnInit(): void {
+    this.getProdutos();
+  }
+
+  getProdutos() {
     this.produtoService.getProdutos().subscribe((produtos) => {
       this.produtos = produtos;
       console.log(this.produtos);
@@ -21,6 +25,24 @@ export class ListagemComponent implements OnInit {
   }
 
   selecionarProduto(produto: Produto) {
+    console.log(produto);
+
     this.router.navigate(["produto/editar-produto", produto.id]);
+  }
+
+  criarNovoProduto() {
+    this.router.navigate(["produto/novo-produto"]);
+  }
+
+  deleteProduto(produto: Produto) {
+    this.produtoService.excluirProduto(produto.id).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.router.navigate(["produto/listagem"]);
+      },
+      error: (err) => {
+        console.log("deu erro ao excluir");
+      },
+    });
   }
 }

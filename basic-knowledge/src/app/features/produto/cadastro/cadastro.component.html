@@ -1,1 +1,70 @@
-<p>cadastro works!</p>
+<h1 class="tituloPagina">{{ tituloPagina }}</h1>
+
+<form class="example-form">
+  <mat-form-field
+    class="example-full-width"
+    color="accent"
+    appearance="outline"
+  >
+    <mat-label>Titulo</mat-label>
+    <input
+      [(ngModel)]="nome"
+      [ngModelOptions]="{ standalone: true }"
+      matInput
+      placeholder="Titulo Produto"
+    />
+  </mat-form-field>
+
+  <mat-form-field
+    class="example-full-width"
+    color="accent"
+    appearance="outline"
+  >
+    <mat-label>Preço</mat-label>
+    <input
+      type="number"
+      [(ngModel)]="preco"
+      [ngModelOptions]="{ standalone: true }"
+      matInput
+      placeholder="Digite um preço"
+    />
+  </mat-form-field>
+
+  <mat-form-field
+    class="example-full-width"
+    color="accent"
+    appearance="outline"
+  >
+    <mat-label>Estoque</mat-label>
+    <input
+      [(ngModel)]="estoque"
+      [ngModelOptions]="{ standalone: true }"
+      type="number"
+      matInput
+      placeholder="Digite um preço"
+    />
+  </mat-form-field>
+
+  <mat-form-field
+    class="example-full-width"
+    color="accent"
+    appearance="outline"
+  >
+    <mat-label>Descrição</mat-label>
+    <textarea
+      [(ngModel)]="descricao"
+      [ngModelOptions]="{ standalone: true }"
+      matInput
+      placeholder="Descreva o produto"
+    ></textarea>
+  </mat-form-field>
+
+  <button
+    (click)="salvarProduto()"
+    mat-raised-button
+    color="primary"
+    type="submit"
+  >
+    Salvar
+  </button>
+</form>
