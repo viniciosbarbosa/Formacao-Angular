@@ -11,7 +11,12 @@
     appearance="outline"
   >
     <mat-label>Titulo</mat-label>
-    <input formControlName="nome" matInput placeholder="Titulo Produto" />
+    <input
+      formControlName="nome"
+      min="4"
+      matInput
+      placeholder="Titulo Produto"
+    />
     <mat-error>Favor informe um titulo</mat-error>
   </mat-form-field>
 
@@ -67,4 +72,6 @@
   >
     Salvar
   </button>
+
+  <p>{{ !formCadastroProduto.valid }}</p>
 </form>

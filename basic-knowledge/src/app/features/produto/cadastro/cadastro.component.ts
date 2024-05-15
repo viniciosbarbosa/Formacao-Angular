@@ -41,13 +41,11 @@ export class CadastroComponent implements OnInit {
       this.isNovoProduto = true;
       this.tituloPagina = "Novo Produto";
     }
-
-    console.log(this.tituloPagina);
   }
 
   criarFormulario() {
     this.formCadastroProduto = this.FormBuilder.group({
-      nome: ["", Validators.required],
+      nome: ["", [Validators.required, Validators.min(4)]],
       descricao: ["", Validators.required],
       preco: ["", Validators.required],
       estoque: [0, Validators.required],
@@ -62,11 +60,11 @@ export class CadastroComponent implements OnInit {
   }
 
   atualizarForm(produto: Produto) {
-    this.formCadastroProduto.setValue({
-      nome: [produto.nome],
-      descricao: [produto.descricao],
-      preco: [produto.preco],
-      estoque: [produto.estoque],
+    this.formCadastroProduto.patchValue({
+      nome: produto.nome,
+      descricao: produto.descricao,
+      preco: produto.preco,
+      estoque: produto.estoque,
     });
   }
 
@@ -90,7 +88,6 @@ export class CadastroComponent implements OnInit {
   atualizarProduto(produtoParaSalvar: Produto) {
     this.produtoService.atualizarProduto(produtoParaSalvar).subscribe({
       next: (response) => {
-        console.log(response);
         this.router.navigate(["produto/listagem"]);
       },
       error: (err) => {
