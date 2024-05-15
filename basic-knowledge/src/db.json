@@ -17,12 +17,18 @@
       "id": "6fbd"
     },
     {
-      "nome": "Monitor Ultra Wide",
-      "descricao": "Monitor Ultra Wide 29 polegadas IPS 144ms",
-      "imagemUrl": "https://m.media-amazon.com/images/I/51Ufkd4a13L._AC_SX679_.jpg",
-      "preco": "1699",
-      "estoque": 5,
-      "id": "723b"
+      "id": "723b",
+      "nome": [
+        "Monitor Ultra Wide"
+      ],
+      "descricao": [
+        "Monitor Ultra Wide 29 polegadas IPS 144ms"
+      ],
+      "preco": 1695,
+      "estoque": [
+        5
+      ],
+      "imagemUrl": "https://m.media-amazon.com/images/I/51Ufkd4a13L._AC_SX679_.jpg"
     },
     {
       "nome": "Notebook Gamer",
@@ -31,6 +37,13 @@
       "preco": "5000",
       "estoque": 2,
       "id": "0669"
+    },
+    {
+      "id": "d207",
+      "nome": "macbook 2010",
+      "descricao": "produto nota 10",
+      "preco": 1250,
+      "estoque": 3
     }
   ],
   "clientes": [

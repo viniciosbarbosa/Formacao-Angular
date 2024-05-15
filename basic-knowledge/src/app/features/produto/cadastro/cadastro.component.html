@@ -1,18 +1,18 @@
 <h1 class="tituloPagina">{{ tituloPagina }}</h1>
 
-<form class="example-form">
+<form
+  [formGroup]="formCadastroProduto"
+  (ngSubmit)="salvarProduto()"
+  class="example-form"
+>
   <mat-form-field
     class="example-full-width"
     color="accent"
     appearance="outline"
   >
     <mat-label>Titulo</mat-label>
-    <input
-      [(ngModel)]="nome"
-      [ngModelOptions]="{ standalone: true }"
-      matInput
-      placeholder="Titulo Produto"
-    />
+    <input formControlName="nome" matInput placeholder="Titulo Produto" />
+    <mat-error>Favor informe um titulo</mat-error>
   </mat-form-field>
 
   <mat-form-field
@@ -23,11 +23,11 @@
     <mat-label>Preço</mat-label>
     <input
       type="number"
-      [(ngModel)]="preco"
-      [ngModelOptions]="{ standalone: true }"
+      formControlName="preco"
       matInput
       placeholder="Digite um preço"
     />
+    <mat-error>Favor informe um preço</mat-error>
   </mat-form-field>
 
   <mat-form-field
@@ -37,12 +37,12 @@
   >
     <mat-label>Estoque</mat-label>
     <input
-      [(ngModel)]="estoque"
-      [ngModelOptions]="{ standalone: true }"
+      formControlName="estoque"
       type="number"
       matInput
-      placeholder="Digite um preço"
+      placeholder="Digite um estoque"
     />
+    <mat-error>Favor informe um estoque</mat-error>
   </mat-form-field>
 
   <mat-form-field
@@ -52,15 +52,15 @@
   >
     <mat-label>Descrição</mat-label>
     <textarea
-      [(ngModel)]="descricao"
-      [ngModelOptions]="{ standalone: true }"
+      formControlName="descricao"
       matInput
       placeholder="Descreva o produto"
     ></textarea>
+    <mat-error>Favor informe a descricao</mat-error>
   </mat-form-field>
 
   <button
-    (click)="salvarProduto()"
+    [disabled]="!formCadastroProduto.valid"
     mat-raised-button
     color="primary"
     type="submit"
