@@ -3,6 +3,7 @@ import { ProdutoService } from "./../services/produto.service";
 import { Component, OnInit } from "@angular/core";
 import { Produto } from "../models/produto.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { criarSenhaForte } from "../validacoes/criarSenhaForte";
 
 @Component({
   selector: "app-cadastro",
@@ -45,8 +46,21 @@ export class CadastroComponent implements OnInit {
 
   criarFormulario() {
     this.formCadastroProduto = this.FormBuilder.group({
-      nome: ["", [Validators.required, Validators.min(4)]],
+      nome: ["", [Validators.required, Validators.minLength(4)]],
       descricao: ["", Validators.required],
+      email: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern(
+            "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+          ),
+        ],
+      ],
+      password: [
+        "",
+        [Validators.required, Validators.minLength(8), criarSenhaForte()],
+      ],
       preco: ["", Validators.required],
       estoque: [0, Validators.required],
     });

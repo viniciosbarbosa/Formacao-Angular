@@ -25,6 +25,62 @@
     color="accent"
     appearance="outline"
   >
+    <mat-label>Email</mat-label>
+    <input
+      formControlName="email"
+      min="4"
+      matInput
+      placeholder="Titulo Produto"
+    />
+    <mat-error>Favor informe um email</mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    class="example-full-width"
+    color="accent"
+    appearance="outline"
+  >
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      formControlName="password"
+      min="4"
+      matInput
+      placeholder="Digite uma senha"
+    />
+
+    <mat-error
+      *ngIf="
+        formCadastroProduto.get('password')?.errors?.hasOwnProperty('required')
+      "
+      >Favor informe uma senha</mat-error
+    >
+    <mat-error
+      *ngIf="
+        formCadastroProduto
+          .get('password')
+          ?.errors?.hasOwnProperty('minLength') &&
+        formCadastroProduto.get('password')?.touched
+      "
+    >
+      A senha tem que ter pelo menos 8 caracteres
+    </mat-error>
+    <mat-error
+      *ngIf="
+        formCadastroProduto
+          .get('password')
+          ?.errors?.hasOwnProperty('senhaForte')
+      "
+      >A senha deve ter 1 caractere maiúsculo e minúsculo ,números e caractere
+      especial</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field
+    class="example-full-width"
+    color="accent"
+    appearance="outline"
+  >
     <mat-label>Preço</mat-label>
     <input
       type="number"
@@ -73,5 +129,5 @@
     Salvar
   </button>
 
-  <p>{{ !formCadastroProduto.valid }}</p>
+  <p>{{ formCadastroProduto.value.password }}</p>
 </form>
