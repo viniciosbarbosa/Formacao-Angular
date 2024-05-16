@@ -1,0 +1,20 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.menu-item {
+  a {
+    color: #7b7b7b;
+    text-decoration: none;
+    margin: 10px;
+    transition: 0.3s;
+    &:hover {
+      color: #a7a7a7;
+      text-decoration: none;
+    }
+
+    &.active {
+      color: #000000;
+    }
+  }
+}
