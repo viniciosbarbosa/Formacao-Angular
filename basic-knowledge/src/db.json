@@ -44,6 +44,15 @@
       "descricao": "produto nota 10",
       "preco": 1250,
       "estoque": 3
+    },
+    {
+      "id": "9411",
+      "nome": "Testando regex",
+      "descricao": "funcionou mesmo ",
+      "email": "viniciosregex@gmail.com",
+      "password": "Minhapika123@",
+      "preco": 10,
+      "estoque": 10
     }
   ],
   "clientes": [

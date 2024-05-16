@@ -74,9 +74,13 @@ export class CadastroComponent implements OnInit {
   }
 
   atualizarForm(produto: Produto) {
+    console.log(produto);
+
     this.formCadastroProduto.patchValue({
       nome: produto.nome,
       descricao: produto.descricao,
+      email: produto.email,
+      password: produto.password,
       preco: produto.preco,
       estoque: produto.estoque,
     });
@@ -87,6 +91,8 @@ export class CadastroComponent implements OnInit {
       id: this.id,
       nome: this.formCadastroProduto.value.nome,
       descricao: this.formCadastroProduto.value.descricao,
+      email: this.formCadastroProduto.value.email,
+      password: this.formCadastroProduto.value.password,
       preco: this.formCadastroProduto.value.preco,
       estoque: this.formCadastroProduto.value.estoque,
     };
