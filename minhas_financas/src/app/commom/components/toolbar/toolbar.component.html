@@ -2,7 +2,7 @@
   <span>Minhas Financias</span>
   <span class="example-spacer"></span>
 
-  <div class="menu-item" *ngFor="let item of menu">
+  <div class="menu-item" *ngFor="let item of menuData">
     <a routerLinkActive="active" [routerLink]="item.rota">{{
       item.descricao
     }}</a>
