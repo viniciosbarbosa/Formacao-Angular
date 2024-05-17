@@ -2,12 +2,8 @@ import { CategoriasService } from "./../../services/categorias.service";
 import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
-
-export interface Catergorias {
-  nome: string;
-  descricao: string;
-  id: number;
-}
+import { Router } from "@angular/router";
+import { Catergorias } from "../../models/categioria.model";
 
 @Component({
   selector: "app-list",
@@ -15,9 +11,12 @@ export interface Catergorias {
   styleUrls: ["./list.component.scss"],
 })
 export class ListComponent implements OnInit, AfterViewInit {
-  constructor(private categoriasService: CategoriasService) {}
+  constructor(
+    private categoriasService: CategoriasService,
+    private router: Router
+  ) {}
 
-  displayedColumns: string[] = ["nome", "descricao"];
+  displayedColumns: string[] = ["nome", "descricao", "editar", "excluir"];
   dataSource = new MatTableDataSource<Catergorias>();
 
   categorias: Array<Catergorias> = [];
@@ -44,5 +43,9 @@ export class ListComponent implements OnInit, AfterViewInit {
         console.log(err);
       },
     });
+  }
+
+  chamarEdicao(categoria: Catergorias) {
+    this.router.navigate(["categorias/editar", categoria.id]);
   }
 }

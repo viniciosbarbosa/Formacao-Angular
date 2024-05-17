@@ -15,4 +15,8 @@ export class CategoriasService extends HttpBaseService {
   getCategorias(): Observable<any> {
     return this.httpGet(this.endpoint);
   }
+
+  getCategoriaById(id: string): Observable<any> {
+    return this.httpGet(`${this.endpoint}/${id}`);
+  }
 }

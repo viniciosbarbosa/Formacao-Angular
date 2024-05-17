@@ -1,1 +1,19 @@
-<p>formulario works!</p>
+<div class="container">
+  <form [formGroup]="formCategoria" class="example-form">
+    <h1>Edite uma categoria</h1>
+
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Categoria</mat-label>
+      <input formControlName="nome" matInput placeholder="Alimentação" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Descrição</mat-label>
+      <textarea
+        formControlName="descricao"
+        matInput
+        placeholder="Digite aqui uma categoria"
+      ></textarea>
+    </mat-form-field>
+  </form>
+</div>
