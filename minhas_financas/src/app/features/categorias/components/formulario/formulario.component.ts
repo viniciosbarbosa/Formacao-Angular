@@ -13,6 +13,9 @@ export class FormularioComponent implements OnInit {
   categoria!: Catergorias;
 
   formCategoria!: FormGroup;
+  algumCampoAlterado: boolean = false;
+  textoAcao = "";
+  idCategory: string = "";
 
   constructor(
     private categoriasService: CategoriasService,
@@ -21,32 +24,36 @@ export class FormularioComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
+  ngOnInit(): void {
+    this.verifyParamsByUrl();
+    this.criarFormulario();
+  }
+
   criarFormulario() {
     this.formCategoria = this.formBuilder.group({
       nome: ["", Validators.required],
       descricao: ["", Validators.required],
     });
-  }
 
-  ngOnInit(): void {
-    this.getCategoriasPeloId();
-    this.criarFormulario();
-  }
-
-  getParamsByUrl() {
-    let id: string = "";
-
-    this.activatedRoute.params.subscribe((params) => {
-      id = params["id"];
+    this.formCategoria.valueChanges.subscribe(() => {
+      this.verificarAlteracoes();
     });
-
-    return id;
   }
 
-  async getCategoriasPeloId() {
-    let idUserbyUrl = await this.getParamsByUrl();
+  verifyParamsByUrl() {
+    this.activatedRoute.params.subscribe((params) => {
+      this.idCategory = params["id"];
+      if (this.idCategory) {
+        this.getCategoriasPeloId(this.idCategory);
+        this.textoAcao = "Editar";
+      } else {
+        this.textoAcao = "Nova";
+      }
+    });
+  }
 
-    this.categoriasService.getCategoriaById(idUserbyUrl).subscribe({
+  async getCategoriasPeloId(idUser: string) {
+    this.categoriasService.getCategoriaById(idUser).subscribe({
       next: (response: Catergorias) => {
         this.categoria = response;
         this.atualizarFormulario(this.categoria);
@@ -58,10 +65,57 @@ export class FormularioComponent implements OnInit {
   }
 
   atualizarFormulario(categoria: Catergorias) {
-    console.log(categoria);
     this.formCategoria.patchValue({
       nome: categoria.nome,
       descricao: categoria.descricao,
+      id: categoria.id,
+    });
+  }
+
+  verificarAlteracoes() {
+    this.algumCampoAlterado = Object.keys(this.formCategoria.controls).some(
+      (campo) => this.formCategoria.get(campo)?.dirty
+    );
+  }
+
+  salvarCategoria() {
+    if (this.formCategoria.touched && this.algumCampoAlterado) {
+      const payload = {
+        nome: this.formCategoria.value.nome,
+        descricao: this.formCategoria.value.descricao,
+        id: this.idCategory,
+      };
+      if (this.idCategory) {
+        this.editarCategoria(payload);
+      } else {
+        this.criarCategoria(payload);
+      }
+    }
+  }
+
+  criarCategoria(payload: Catergorias) {
+    this.categoriasService.criarCategoria(payload).subscribe({
+      next: (response) => {
+        if (response) {
+          this.router.navigate(["/categorias"]);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  editarCategoria(payload: Catergorias) {
+    this.categoriasService.alterarCategoria(payload).subscribe({
+      next: (response) => {
+        if (response) {
+          this.router.navigate(["/categorias"]);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
     });
   }
 }

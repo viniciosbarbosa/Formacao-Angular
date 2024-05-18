@@ -37,7 +37,6 @@ export class ListComponent implements OnInit, AfterViewInit {
       next: (data) => {
         this.categorias = data;
         this.dataSource.data = this.categorias;
-        console.log(this.categorias);
       },
       error: (err) => {
         console.log(err);
@@ -47,5 +46,22 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   chamarEdicao(categoria: Catergorias) {
     this.router.navigate(["categorias/editar", categoria.id]);
+  }
+
+  criarNovaCatergoria() {
+    this.router.navigate(["categorias/nova-categoria"]);
+  }
+
+  excluir(id: string) {
+    console.log(typeof id);
+
+    this.categoriasService.excluirCategoria(id).subscribe({
+      next: (response) => {
+        this.getCategorias();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

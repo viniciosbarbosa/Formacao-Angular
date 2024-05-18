@@ -1,6 +1,6 @@
 <div class="container">
   <form [formGroup]="formCategoria" class="example-form">
-    <h1>Edite uma categoria</h1>
+    <h1>{{ textoAcao }} uma categoria</h1>
 
     <mat-form-field appearance="outline" class="example-full-width">
       <mat-label>Categoria</mat-label>
@@ -15,5 +15,14 @@
         placeholder="Digite aqui uma categoria"
       ></textarea>
     </mat-form-field>
+
+    <button
+      (click)="salvarCategoria()"
+      mat-raised-button
+      color="primary"
+      [disabled]="!formCategoria.valid || !algumCampoAlterado"
+    >
+      Salvar
+    </button>
   </form>
 </div>
