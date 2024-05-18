@@ -17,6 +17,13 @@ const routes: Routes = [
         (m) => m.CategoriasModule
       ),
   },
+  {
+    path: "entradas",
+    loadChildren: () =>
+      import("./features/entradas/entradas.module").then(
+        (m) => m.EntradasModule
+      ),
+  },
 ];
 
 @NgModule({

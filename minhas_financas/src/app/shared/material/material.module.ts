@@ -9,9 +9,10 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { ReactiveFormsModule } from "@angular/forms";
+import { FormatarMoedaPipe } from "../pipe/formatar-moeda.pipe";
 
 @NgModule({
-  declarations: [],
+  declarations: [FormatarMoedaPipe],
   imports: [
     CommonModule,
     MatCardModule,
@@ -34,6 +35,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatPaginatorModule,
     MatInputModule,
     ReactiveFormsModule,
+    FormatarMoedaPipe,
   ],
 })
 export class MaterialModule {}
