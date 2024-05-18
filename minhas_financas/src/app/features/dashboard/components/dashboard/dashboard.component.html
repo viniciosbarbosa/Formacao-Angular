@@ -5,8 +5,8 @@
       <mat-label>Mês</mat-label>
       <mat-select>
         <mat-option>Selecione o mês</mat-option>
-        <mat-option *ngFor="let mes of meses" [value]="mes.value">{{
-          mes.viewValue
+        <mat-option *ngFor="let mes of meses" [value]="mes.id">{{
+          mes.value
         }}</mat-option>
       </mat-select>
     </mat-form-field>

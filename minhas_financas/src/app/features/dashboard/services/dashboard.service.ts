@@ -15,4 +15,8 @@ export class DashboardService extends HttpBaseService {
   getEntradas(): Observable<any> {
     return this.httpGet(this.endpoint);
   }
+
+  getAllMounts(): Observable<any> {
+    return this.httpGet("meses");
+  }
 }
