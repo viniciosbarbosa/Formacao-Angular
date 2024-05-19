@@ -1,25 +1,37 @@
 <h1 class="title">Minhas Finanças</h1>
 <div class="flex header">
-  <div>
-    <mat-form-field appearance="outline" class="input-item" color="primary">
-      <mat-label>Mês</mat-label>
-      <mat-select>
-        <mat-option>Selecione o mês</mat-option>
-        <mat-option *ngFor="let mes of meses" [value]="mes.id">{{
-          mes.value
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+  <form [formGroup]="formDashBoard" (ngSubmit)="getBillByMouthYear()">
+    <div>
+      <mat-form-field appearance="outline" class="input-item" color="primary">
+        <mat-label>Mês</mat-label>
+        <mat-select formControlName="mes">
+          <mat-option>Selecione o mês</mat-option>
+          <mat-option *ngFor="let mes of meses" [value]="mes.id">{{
+            mes.value
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <div>
-    <mat-form-field appearance="outline" class="input-item">
-      <mat-label>Ano</mat-label>
-      <mat-select>
-        <mat-option value="2023">2023</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+      <mat-form-field appearance="outline" class="input-item">
+        <mat-label>Ano</mat-label>
+        <mat-select formControlName="ano">
+          <mat-option>Selecione o Ano</mat-option>
+          <mat-option *ngFor="let ano of anos" [value]="ano.value">{{
+            ano.value
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        [disabled]="formDashBoard.invalid"
+        type="submit"
+        mat-raised-button
+        color="primary"
+      >
+        Buscar
+      </button>
+    </div>
+  </form>
 </div>
 
 <div class="flex card-item">

@@ -1,6 +1,8 @@
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Entrada } from "./../../models/entrada.model";
 import { DashboardService } from "./../../services/dashboard.service";
 import { Component, OnInit } from "@angular/core";
+import { entrada } from "src/app/features/entradas/models/entrada.model";
 
 @Component({
   selector: "app-dashboard",
@@ -8,32 +10,31 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
-  // meses = [
-  //   { value: 0, viewValue: "Janeiro" },
-  //   { value: 1, viewValue: "Fevereiro" },
-  //   { value: 2, viewValue: "Março" },
-  //   { value: 3, viewValue: "Abril" },
-  //   { value: 4, viewValue: "Maio" },
-  //   { value: 5, viewValue: "Junho" },
-  //   { value: 6, viewValue: "Julho" },
-  //   { value: 7, viewValue: "Agosto" },
-  //   { value: 8, viewValue: "Setembro" },
-  //   { value: 9, viewValue: "Outubro" },
-  //   { value: 10, viewValue: "Novembro" },
-  //   { value: 11, viewValue: "Dezembro" },
-  // ];
-
-  entradas: any[] = [];
+  entradas: Array<any> = [];
   saldo = 0;
   despesa = 0;
   receita = 0;
   meses: Array<any> = [];
+  anos: Array<any> = [];
+  formDashBoard!: FormGroup;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.getEntradas();
     this.getMonth();
+    this.getYear();
+    this.criarFormulario();
+  }
+
+  criarFormulario() {
+    this.formDashBoard = this.formBuilder.group({
+      mes: ["", Validators.required],
+      ano: ["", Validators.required],
+    });
   }
 
   getMonth() {
@@ -43,29 +44,53 @@ export class DashboardComponent implements OnInit {
       },
     });
   }
+  getYear() {
+    this.dashboardService.getAllYears().subscribe({
+      next: (response) => {
+        this.anos = response;
+      },
+    });
+  }
 
   getEntradas() {
     this.dashboardService.getEntradas().subscribe({
       next: (response) => {
         this.entradas = response;
-        console.log(this.entradas);
-        this.getReceitas();
+        this.getReceitas(this.entradas);
       },
     });
   }
 
-  getReceitas() {
-    this.entradas.forEach((entrada: Entrada) => {
+  getBillByMouthYear() {
+    const payload = {
+      mes: this.formDashBoard.value.mes.padStart(2, "0"),
+      ano: this.formDashBoard.value.ano,
+    };
+
+    this.dashboardService.getEntradasFilter(payload).subscribe({
+      next: (response) => {
+        this.entradas = response[0];
+        console.log(response[0]);
+        this.getReceitas(this.entradas);
+      },
+      error(err) {
+        console.log(err);
+      },
+    });
+  }
+
+  getReceitas(entradas: any) {
+    this.saldo = 0;
+    this.receita = 0;
+    this.despesa = 0;
+
+    entradas.forEach((entrada: Entrada) => {
       if (entrada.tipo === "receita") {
         this.receita += parseInt(entrada.valor);
       } else {
         this.despesa += parseInt(entrada.valor);
       }
-
       return (this.saldo = this.receita - this.despesa);
     });
-
-    console.log(this.receita);
-    console.log(this.despesa);
   }
 }
