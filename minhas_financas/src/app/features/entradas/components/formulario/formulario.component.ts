@@ -47,9 +47,9 @@ export class FormularioComponent implements OnInit {
 
       if (this.idEntrada) {
         this.getEntradaPeloId(this.idEntrada);
-        this.textoAcao = "Editar";
+        this.textoAcao = "Edição";
       } else {
-        this.textoAcao = "Nova";
+        this.textoAcao = "Cadastrar";
       }
     });
   }

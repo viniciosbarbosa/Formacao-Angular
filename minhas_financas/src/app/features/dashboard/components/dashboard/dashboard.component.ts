@@ -40,7 +40,6 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getAllMounts().subscribe({
       next: (response) => {
         this.meses = response;
-        console.log(this.meses);
       },
     });
   }
@@ -65,5 +64,8 @@ export class DashboardComponent implements OnInit {
 
       return (this.saldo = this.receita - this.despesa);
     });
+
+    console.log(this.receita);
+    console.log(this.despesa);
   }
 }
