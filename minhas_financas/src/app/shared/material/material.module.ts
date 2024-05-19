@@ -10,6 +10,8 @@ import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormatarMoedaPipe } from "../pipe/formatar-moeda.pipe";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 
 @NgModule({
   declarations: [FormatarMoedaPipe],
@@ -23,6 +25,8 @@ import { FormatarMoedaPipe } from "../pipe/formatar-moeda.pipe";
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
   ],
   exports: [
@@ -36,6 +40,8 @@ import { FormatarMoedaPipe } from "../pipe/formatar-moeda.pipe";
     MatInputModule,
     ReactiveFormsModule,
     FormatarMoedaPipe,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 })
 export class MaterialModule {}

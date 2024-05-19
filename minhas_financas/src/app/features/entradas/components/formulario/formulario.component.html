@@ -1,1 +1,58 @@
-<p>formulario works!</p>
+<div class="container">
+  <h1 class="center">Cadastro de entradas</h1>
+</div>
+<div class="container flex">
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Entrada</mat-label>
+    <input matInput type="text" />
+    <!-- <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button> -->
+  </mat-form-field>
+
+  <mat-form-field class="example-form-field" appearance="outline">
+    <mat-label>Valor</mat-label>
+    <input matInput type="text" />
+    <!-- <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+        <mat-icon>close</mat-icon>
+      </button> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Categoria</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{ food.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Status</mat-label>
+    <mat-select>
+      <mat-option
+        *ngFor="let status of statusDePagamento"
+        [value]="status.value"
+      >
+        {{ status.descricao }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Tipo</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let tipo of tiposDeEntradas" [value]="tipo.value">
+        {{ tipo.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Data de Pagamento</mat-label>
+    <input matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>

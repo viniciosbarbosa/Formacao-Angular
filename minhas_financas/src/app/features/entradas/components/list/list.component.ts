@@ -61,9 +61,18 @@ export class ListComponent implements OnInit {
     this.router.navigate(["entradas/editar", entrada.id]);
   }
 
-  excluir() {}
+  excluir(id: string) {
+    this.entradaService.excluir(id).subscribe({
+      next: (response) => {
+        this.getEntradas();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 
   novaEntrada() {
-    this.router.navigate(["entrada/nova-categoria"]);
+    this.router.navigate(["entradas/nova-entrada"]);
   }
 }

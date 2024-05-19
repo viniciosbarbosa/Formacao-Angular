@@ -5,9 +5,10 @@ import { EntradasRoutingModule } from "./entradas-routing.module";
 import { ListComponent } from "./components/list/list.component";
 import { FormularioComponent } from "./components/formulario/formulario.component";
 import { MaterialModule } from "src/app/shared/material/material.module";
+import { StatusPipe } from './pipe/status.pipe';
 
 @NgModule({
-  declarations: [ListComponent, FormularioComponent],
+  declarations: [ListComponent, FormularioComponent, StatusPipe],
   imports: [CommonModule, EntradasRoutingModule, MaterialModule],
 })
 export class EntradasModule {}

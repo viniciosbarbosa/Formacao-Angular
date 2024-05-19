@@ -171,15 +171,6 @@
       "data": "28/04/2023",
       "valor": "15,00",
       "tipo": "despesa"
-    },
-    {
-      "id": "55",
-      "nome": "Cinema",
-      "categoriaId": 2,
-      "pago": false,
-      "data": "28/04/2023",
-      "valor": "30,00",
-      "tipo": "despesa"
     }
   ],
   "meses": [
