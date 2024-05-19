@@ -54,7 +54,8 @@ export class ListComponent implements OnInit {
   }
 
   formatarValor(valor: string): number {
-    return parseFloat(valor.replace(",", "."));
+    const valorString = valor.toString();
+    return parseFloat(valorString.replace(",", "."));
   }
 
   chamarEdicao(entrada: Entrada) {
