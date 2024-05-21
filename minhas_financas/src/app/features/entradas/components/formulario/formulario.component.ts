@@ -125,7 +125,6 @@ export class FormularioComponent implements OnInit {
         nome: this.formEntrada.value.nome,
         categoriaId: this.formEntrada.value.categoriaId,
         pago: this.formEntrada.value.pago,
-        // data: this.formatarData(this.formEntrada.value.data),
         data: dataFormata,
         tipo: this.formEntrada.value.tipo,
         valor: this.formEntrada.value.valor,
