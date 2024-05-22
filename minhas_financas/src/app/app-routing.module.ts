@@ -24,6 +24,11 @@ const routes: Routes = [
         (m) => m.EntradasModule
       ),
   },
+  {
+    path: "auth",
+    loadChildren: () =>
+      import("./commom/components/auth/auth.module").then((m) => m.AuthModule),
+  },
 ];
 
 @NgModule({
