@@ -1,14 +1,19 @@
 <div class="container">
   <h1>Entrar Minhas Finanças</h1>
 
-  <form class="example-form">
+  <form class="example-form" (ngSubmit)="login()" [formGroup]="loginForm">
     <mat-form-field
       appearance="outline"
       color="primary"
       class="example-full-width"
     >
       <mat-label>Email</mat-label>
-      <input type="text" matInput placeholder="Preencha seu email" />
+      <input
+        formControlName="email"
+        type="text"
+        matInput
+        placeholder="Preencha seu email"
+      />
     </mat-form-field>
 
     <mat-form-field
@@ -17,9 +22,16 @@
       class="example-full-width"
     >
       <mat-label>Senha</mat-label>
-      <input type="text" matInput placeholder="Preencha sua senha" />
+      <input
+        formControlName="password"
+        type="text"
+        matInput
+        placeholder="Preencha sua senha"
+      />
     </mat-form-field>
 
-    <button color="primary" mat-raised-button type="submit">Entrar</button>
+    <button type="submit" color="primary" mat-raised-button type="submit">
+      Entrar
+    </button>
   </form>
 </div>

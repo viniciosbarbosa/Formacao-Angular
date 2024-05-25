@@ -1,310 +1,45 @@
 {
-  "categorias": [
+  "uuid": "3db4f918-cd29-46a2-a977-280dc117c93a",
+  "lastMigration": 32,
+  "name": "New environment",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "rootChildren": [],
+  "folders": [],
+  "routes": [],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [],
+  "proxyResHeaders": [],
+  "data": [
     {
-      "nome": "Moradia",
-      "descricao": "Pagamentos de Contas da Casa e Apto",
-      "id": "1"
+      "uuid": "20568b96-0ddb-4570-8b41-62e6dd910d51",
+      "id": "pf9q",
+      "name": "Categorias",
+      "documentation": "",
+      "value": ""
     },
     {
-      "id": "2",
-      "nome": "Saúde",
-      "descricao": "Plano de Saúde e Remédios"
-    },
-    {
-      "id": "3",
-      "nome": "Lazer",
-      "descricao": "Cinema, parques, praia, etc"
-    },
-    {
-      "id": "4",
-      "nome": "Salário",
-      "descricao": "Recebimento de Salário"
-    },
-    {
-      "nome": "Outros",
-      "descricao": "Outras despesasa",
-      "id": "6"
-    },
-    {
-      "nome": "Limpeza",
-      "descricao": "domestica",
-      "id": "9c6e"
-    },
-    {
-      "nome": "Pre commit",
-      "descricao": "teste edit",
-      "id": "0dff"
+      "uuid": "e05d7f97-4425-4645-be41-a63b391a9d40",
+      "id": "1y0e",
+      "name": "Entradas",
+      "documentation": "",
+      "value": ""
     }
   ],
-  "entradas": [
-    {
-      "id": "6",
-      "nome": "Video Game",
-      "categoriaId": 3,
-      "pago": false,
-      "data": "17/03/2023",
-      "valor": "15,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "11",
-      "nome": "Uber",
-      "categoriaId": 2,
-      "pago": true,
-      "data": "17/03/2023",
-      "valor": "30,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "12",
-      "nome": "Aluguel",
-      "categoriaId": 3,
-      "pago": false,
-      "data": "23/03/2023",
-      "valor": "15,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "13",
-      "nome": "Gás de Cozinha",
-      "categoriaId": 2,
-      "pago": false,
-      "data": "25/03/2023",
-      "valor": "30,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "14",
-      "nome": "Pagamento Pelo Projeto XYZ",
-      "categoriaId": 5,
-      "pago": true,
-      "data": "25/03/2023",
-      "valor": "2980,00",
-      "tipo": "receita"
-    },
-    {
-      "id": "19",
-      "nome": "Netflix",
-      "categoriaId": 3,
-      "pago": false,
-      "data": "07/04/2023",
-      "valor": "15,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "21",
-      "nome": "Video Game",
-      "categoriaId": 2,
-      "pago": true,
-      "data": "17/04/2023",
-      "valor": "30,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "22",
-      "nome": "Cinema",
-      "categoriaId": 3,
-      "pago": true,
-      "data": "18/04/2023",
-      "valor": "15,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "23",
-      "nome": "Gasolina",
-      "categoriaId": 2,
-      "pago": false,
-      "data": "21/04/2023",
-      "valor": "130,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "44",
-      "nome": "Uber",
-      "categoriaId": 3,
-      "pago": true,
-      "data": "28/04/2023",
-      "valor": "15,00",
-      "tipo": "despesa"
-    },
-    {
-      "id": "2eb9",
-      "nome": "teste",
-      "categoriaId": "2",
-      "pago": true,
-      "data": "19/05/2024",
-      "tipo": "despesa",
-      "valor": 100
-    },
-    {
-      "id": "8f1a",
-      "nome": "teste",
-      "categoriaId": "1",
-      "pago": true,
-      "data": "19/05/2024",
-      "tipo": "despesa",
-      "valor": 100
-    },
-    {
-      "nome": "teste",
-      "categoriaId": "3",
-      "pago": true,
-      "data": "01/01/2024",
-      "tipo": "receita",
-      "valor": 500,
-      "id": "bc2a"
-    }
-  ],
-  "meses": [
-    {
-      "id": "1",
-      "value": "Janeiro"
-    },
-    {
-      "id": "2",
-      "value": "Fevereiro"
-    },
-    {
-      "id": "3",
-      "value": "Março"
-    },
-    {
-      "id": "4",
-      "value": "Abril"
-    },
-    {
-      "id": "5",
-      "value": "Maio"
-    },
-    {
-      "id": "6",
-      "value": "Junho"
-    },
-    {
-      "id": "7",
-      "value": "Julho"
-    },
-    {
-      "id": "8",
-      "value": "Agosto"
-    },
-    {
-      "id": "9",
-      "value": "Setembro"
-    },
-    {
-      "id": "10",
-      "value": "Outubro"
-    },
-    {
-      "id": "11",
-      "value": "Novembro"
-    },
-    {
-      "id": "12",
-      "value": "Dezembro"
-    }
-  ],
-  "anos": [
-    {
-      "value": 2024,
-      "id": "44dc"
-    },
-    {
-      "value": 2023,
-      "id": "1e11"
-    },
-    {
-      "value": 2022,
-      "id": "276d"
-    },
-    {
-      "value": 2021,
-      "id": "a151"
-    },
-    {
-      "value": 2020,
-      "id": "3e4a"
-    },
-    {
-      "value": 2019,
-      "id": "6d08"
-    },
-    {
-      "value": 2018,
-      "id": "12e9"
-    },
-    {
-      "value": 2017,
-      "id": "b034"
-    },
-    {
-      "value": 2016,
-      "id": "5439"
-    },
-    {
-      "value": 2015,
-      "id": "c776"
-    },
-    {
-      "value": 2014,
-      "id": "64f0"
-    },
-    {
-      "value": 2013,
-      "id": "c460"
-    },
-    {
-      "value": 2012,
-      "id": "5cbf"
-    },
-    {
-      "value": 2011,
-      "id": "1401"
-    },
-    {
-      "value": 2010,
-      "id": "a040"
-    },
-    {
-      "value": 2009,
-      "id": "b630"
-    },
-    {
-      "value": 2008,
-      "id": "3768"
-    },
-    {
-      "value": 2007,
-      "id": "8113"
-    },
-    {
-      "value": 2006,
-      "id": "b8ac"
-    },
-    {
-      "value": 2005,
-      "id": "2578"
-    },
-    {
-      "value": 2004,
-      "id": "0afa"
-    },
-    {
-      "value": 2003,
-      "id": "4729"
-    },
-    {
-      "value": 2002,
-      "id": "2589"
-    },
-    {
-      "value": 2001,
-      "id": "7022"
-    },
-    {
-      "value": 2000,
-      "id": "2a68"
-    }
-  ]
+  "callbacks": []
 }

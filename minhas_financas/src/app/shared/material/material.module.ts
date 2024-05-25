@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { FormatarMoedaPipe } from "../pipe/formatar-moeda.pipe";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [FormatarMoedaPipe],
@@ -28,6 +29,7 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatCardModule,
@@ -42,6 +44,7 @@ import { MatNativeDateModule } from "@angular/material/core";
     FormatarMoedaPipe,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}
