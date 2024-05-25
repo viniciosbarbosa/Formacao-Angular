@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="logado == true">
   <span>Minhas Financias</span>
   <span class="example-spacer"></span>
 
@@ -6,5 +6,9 @@
     <a routerLinkActive="active" [routerLink]="item.rota">{{
       item.descricao
     }}</a>
+  </div>
+
+  <div>
+    <button (click)="sair()">Sair</button>
   </div>
 </mat-toolbar>

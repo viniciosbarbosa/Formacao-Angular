@@ -42,20 +42,27 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authLogin = Object.assign("", this.authLogin, this.loginForm.value);
+    this.authLogin = {
+      email: this.loginForm.get("email")?.value,
+      password: this.loginForm.get("password")?.value,
+    };
 
     this.authLogin.email = this.authLogin.email.toLocaleLowerCase();
 
-    console.log(this.authLogin);
+    console.log("Auth Login Data:", this.authLogin);
 
     this.authService.login(this.authLogin).subscribe({
-      next: (user) => {
-        if (user?.id) {
+      next: (response) => {
+        console.log("API Response:", response);
+
+        if (response.user?.id) {
           this.router.navigateByUrl("dashboard");
         }
+        this.loginForm.reset();
       },
       error: (err) => {
-        this.snackBar.open(err.error.message, "", {
+        console.error("Login Error:", err);
+        this.snackBar.open(err.error.messagem, "", {
           duration: 3000,
           horizontalPosition: "center",
           verticalPosition: "top",

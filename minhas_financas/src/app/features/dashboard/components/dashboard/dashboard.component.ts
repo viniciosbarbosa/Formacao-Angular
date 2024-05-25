@@ -47,6 +47,8 @@ export class DashboardComponent implements OnInit {
   getYear() {
     this.dashboardService.getAllYears().subscribe({
       next: (response) => {
+        console.log(response);
+
         this.anos = response;
       },
     });

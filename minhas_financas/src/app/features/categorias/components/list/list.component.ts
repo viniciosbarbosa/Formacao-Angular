@@ -36,6 +36,8 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.categoriasService.getCategorias().subscribe({
       next: (data) => {
         this.categorias = data;
+        console.log(this.categorias);
+
         this.dataSource.data = this.categorias;
       },
       error: (err) => {

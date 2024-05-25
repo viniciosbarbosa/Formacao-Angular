@@ -21,7 +21,7 @@ export class AuthenticationService extends HttpBaseService {
         this.subjectUsuario.next(resposta.user);
         this.subjectLogin.next(true);
 
-        return resposta.user;
+        return resposta;
       })
     );
   }
@@ -32,7 +32,7 @@ export class AuthenticationService extends HttpBaseService {
     this.subjectLogin.next(false);
   }
 
-  usuarioEstaLogado(): Observable<any> {
+  usuarioEstaLogado(): Observable<boolean> {
     const token = sessionStorage.getItem("token");
     if (token) {
       this.subjectLogin.next(true);
