@@ -1,4 +1,4 @@
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
@@ -13,6 +13,7 @@ import { LOCALE_ID } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
 import localePt from "@angular/common/locales/pt";
 import { AuthGuard } from "./commom/components/auth.guard";
+import { AuthInterceptor } from "./commom/components/auth.interceptor";
 
 registerLocaleData(localePt, "pt-BR");
 
@@ -25,7 +26,11 @@ registerLocaleData(localePt, "pt-BR");
     HttpClientModule,
     MaterialModule,
   ],
-  providers: [AuthGuard, { provide: LOCALE_ID, useValue: "pt-BR" }],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: "pt-BR" },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
