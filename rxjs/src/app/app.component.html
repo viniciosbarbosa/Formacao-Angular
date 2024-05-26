@@ -10,8 +10,7 @@
   />
 </form>
 
-<button>Buscar</button>
-
-<p>{{ testNg }}</p>
+<p>{{ usuarioGithub?.login }}</p>
+<img [src]="usuarioGithub?.avatar_url" alt="" />
 
 <router-outlet></router-outlet>
