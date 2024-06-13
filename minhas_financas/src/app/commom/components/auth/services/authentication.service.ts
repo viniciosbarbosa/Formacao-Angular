@@ -41,7 +41,7 @@ export class AuthenticationService extends HttpBaseService {
     return this.subjectLogin.asObservable();
   }
 
-  obterUsuario() {
-    this.subjectUsuario.asObservable();
+  obterUsuario(): Observable<any> {
+    return this.subjectUsuario.asObservable();
   }
 }
