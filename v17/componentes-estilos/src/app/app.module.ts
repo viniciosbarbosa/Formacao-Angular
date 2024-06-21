@@ -6,12 +6,13 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CardModule } from './card/card.module';
-
+import { CardComponent } from './card/card.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CardModule],
-  providers: [provideClientHydration()],
+  declarations: [AppComponent, CardComponent],
+  imports: [BrowserModule, AppRoutingModule, MatSliderModule],
+  providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
