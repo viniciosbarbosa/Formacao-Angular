@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'filter-user';
-
-
-  myvoid(){
-    
-  }
+  title = 'filter';
 }

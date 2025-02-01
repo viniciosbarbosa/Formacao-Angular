@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "filter-user": {
+    "filter": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/filter-user",
+            "outputPath": "dist/filter",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "filter-user:build:production"
+              "buildTarget": "filter:build:production"
             },
             "development": {
-              "buildTarget": "filter-user:build:development"
+              "buildTarget": "filter:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "filter-user:build"
+            "buildTarget": "filter:build"
           }
         },
         "test": {
