@@ -9,5 +9,5 @@ import { UserList } from './data/users-lists';
 })
 export class AppComponent {
   title = 'filter';
-  userSelect: IUser = UserList[1];
+  userSelect: IUser = UserList[0];
 }
