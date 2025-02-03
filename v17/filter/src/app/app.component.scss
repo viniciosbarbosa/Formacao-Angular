@@ -8,7 +8,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* Organiza as divs filhas verticalmente */
 }
 
 .top-div {
@@ -17,8 +16,6 @@
 
 .main-left-div {
   height: 80%;
-  /* Ocupa 80% da altura do seu contêiner pai */
-  background-color: brown;
 }
 
 .right-div {
