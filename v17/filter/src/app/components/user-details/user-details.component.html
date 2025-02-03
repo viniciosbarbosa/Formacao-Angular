@@ -7,44 +7,47 @@
 
     <mat-list-item>
       <span class="mat-h2">Nome:</span>
-      <span class="mat-h3"> Fulano</span>
+      <span class="mat-h3"> {{ user.nome }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
 
     <mat-list-item>
       <span class="mat-h2">Email:</span>
-      <span class="mat-h3"> Fulano.gmail.com</span>
+      <span class="mat-h3"> {{ user.telefone }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
 
     <mat-list-item>
       <span class="mat-h2">Telefone:</span>
-      <span class="mat-h3"> 11 95762-6191</span>
+      <span class="mat-h3"> {{ user.telefone }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
 
     <mat-list-item>
       <span class="mat-h2">Endereco:</span>
-      <span class="mat-h3"> Rua das flores , 42 , sao paulo - sp</span>
+      <span class="mat-h3"
+        >{{ user.endereco?.rua }} , {{ user.endereco?.numero }} ,
+        {{ user.endereco?.cidade }} , {{ user.endereco?.estado }}</span
+      >
     </mat-list-item>
     <mat-divider></mat-divider>
 
     <mat-list-item>
       <span class="mat-h2">Ativo:</span>
-      <span class="mat-h3"> Sim</span>
+      <span class="mat-h3"> {{ user.ativo }}</span>
     </mat-list-item>
     <mat-divider></mat-divider>
   </mat-list>
 
   <mat-list-item>
     <span class="mat-h2">Funcao:</span>
-    <span class="mat-h3"> Piao</span>
+    <span class="mat-h3">{{ user.funcao }}</span>
   </mat-list-item>
   <mat-divider></mat-divider>
 
   <mat-list-item>
     <span class="mat-h2">Data de cadastro:</span>
-    <span class="mat-h3"> 01/01/2025</span>
+    <span class="mat-h3"> {{ user.dataCadastro }}</span>
   </mat-list-item>
   <mat-divider></mat-divider>
 </div>
