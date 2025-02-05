@@ -2,7 +2,7 @@ import { IUser } from '../interfaces/user/user.interface';
 
 export const UserList: IUser[] = [
   {
-    nome: '',
+    nome: 'João Silva',
     email: 'joao.silva@example.com',
     senha: 'senha-segura-123',
     idade: 30,

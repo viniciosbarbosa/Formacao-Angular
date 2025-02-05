@@ -8,7 +8,7 @@
         mat-cell
         *matCellDef="let element"
       >
-        {{ element.nome }}
+        {{ element.nome | dashIfEmpty }}
       </td>
     </ng-container>
 
@@ -20,7 +20,7 @@
         mat-cell
         *matCellDef="let element"
       >
-        {{ element.dataCadastro | date : "dd/MM/yyyy" }}
+        {{ element.dataCadastro | date : "dd/MM/yyyy" | dashIfEmpty }}
       </td>
     </ng-container>
 
@@ -32,7 +32,7 @@
         mat-cell
         *matCellDef="let element"
       >
-        {{ element.ativo | status }}
+        {{ element.ativo | status | dashIfEmpty }}
       </td>
     </ng-container>
 

@@ -7,12 +7,10 @@ export class PhonePipe implements PipeTransform {
   transform(phone: string): string {
     const INVALID_PHONE = !phone || phone.length < 10 || phone.length > 11;
 
-    const CELLPHONE = phone.length === 11;
-
     if (INVALID_PHONE) {
-      return 'Telefone invalio';
+      return 'Telefone invalido';
     }
-
+    const CELLPHONE = phone.length === 11;
     if (CELLPHONE) {
       return `(${phone.substring(0, 2)}) ${phone.substring(
         2,
