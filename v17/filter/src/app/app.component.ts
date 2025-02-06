@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './interfaces/user/user.interface';
 import { UserList } from './data/users-lists';
+import { IFilterOptions } from './interfaces/filter-options-interface';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,10 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.usersList = UserList;
-    }, 500);
+    }, 10);
+  }
+
+  onFilter(filterOptions: IFilterOptions) {
+    console.log(filterOptions);
   }
 }
