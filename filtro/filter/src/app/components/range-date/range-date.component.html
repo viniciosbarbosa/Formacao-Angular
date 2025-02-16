@@ -1,0 +1,42 @@
+<div class="content">
+  <form [formGroup]="formRangeDate" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="John" formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker" formGroupName="rangeDate">
+        <input
+          matStartDate
+          placeholder="Initial date"
+          formControlName="start"
+        />
+        <input matEndDate placeholder="End date" formControlName="end" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+
+      <mat-error
+        *ngIf="formRangeDate.get('rangeDate.end')?.hasError('maxDateToday')"
+      >
+        A data final não pode ser posterior a hoje.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        @for(status of statusData; track status){
+        <mat-option [value]="status.value">{{ status.description }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">submit</button>
+  </form>
+</div>
